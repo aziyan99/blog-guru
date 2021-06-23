@@ -3,16 +3,16 @@
 @section('title', 'Role')
 
 @section('breadcump')
-    <div class="col-sm-6">
-        <h1 class="m-0">{{ __('Ubah Role') }}</h1>
-    </div>
-    <div class="col-sm-6">
-        <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="{{ route('backend.dashboard.index') }}">{{ __('Home') }}</a></li>
-            <li class="breadcrumb-item">{{ __('Role') }}</li>
-            <li class="breadcrumb-item active">{{ __('Ubah') }}</li>
-        </ol>
-    </div>
+<div class="col-sm-6">
+    <h1 class="m-0">{{ __('Ubah Role') }}</h1>
+</div>
+<div class="col-sm-6">
+    <ol class="breadcrumb float-sm-right">
+        <li class="breadcrumb-item"><a href="{{ route('backend.dashboard.index') }}">{{ __('Home') }}</a></li>
+        <li class="breadcrumb-item">{{ __('Role') }}</li>
+        <li class="breadcrumb-item active">{{ __('Ubah') }}</li>
+    </ol>
+</div>
 @endsection
 
 
@@ -46,14 +46,17 @@
                     </div>
                 </form>
                 <hr>
+                @can('hapus role')
                 <button class="btn btn-danger" data-toggle="modal" data-target="#deleteRole">
                     <i class="fas fa-trash-alt mr-2"></i>
                     {{ __('Hapus role') }}
                 </button>
+                @endcan
             </div>
         </div>
     </div>
 </div>
+@can('hapus role')
 <div class="modal fade" id="deleteRole" tabindex="-1" aria-labelledby="deleteRoleLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -85,4 +88,5 @@
         </div>
     </div>
 </div>
+@endcan
 @endsection

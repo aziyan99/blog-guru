@@ -57,19 +57,24 @@
                     </div>
                 </form>
                 <hr>
+                @can('ubah pengguna')
                 <button class="btn btn-warning"  data-toggle="modal" data-target="#resetPassword">
                     <i class="fas fa-key mr-2"></i>
                     {{ __('Reset password') }}
                 </button>
+                @endcan
+                @can('hapus pengguna')
                 <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#deleteUser">
                     <i class="fas fa-trash-alt mr-2"></i>
                     {{ __('Hapus pengguna') }}
                 </button>
+                @endcan
             </div>
         </div>
     </div>
 </div>
 
+@can('ubah pengguna')
 {{-- Reset user password --}}
 <div class="modal fade" id="resetPassword" tabindex="-1" aria-labelledby="resetPasswordLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -102,7 +107,9 @@
         </div>
     </div>
 </div>
+@endcan
 
+@can('hapus pengguna')
 {{-- Delete user --}}
 <div class="modal fade" id="deleteUser" tabindex="-1" aria-labelledby="deleteUserLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -135,4 +142,5 @@
         </div>
     </div>
 </div>
+@endcan
 @endsection

@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
-    public function index($id)
+    public function index()
     {
-        $profile = User::findOrFail($id);
+        $profile = User::findOrFail(auth()->user()->id);
         return view('backend.profile.index', compact('profile'));
     }
 

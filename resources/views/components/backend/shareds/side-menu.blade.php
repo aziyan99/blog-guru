@@ -1,6 +1,6 @@
 <nav class="mt-2">
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        @can('lihat.dashboard')
+        @can('lihat dasbor')
         <li class="nav-item">
             <a href="{{ route('backend.dashboard.index') }}" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -10,7 +10,7 @@
             </a>
         </li>
         @endcan
-        @can('lihat.pengumuman' || 'tambah.pengumuman' || 'lihat.kategori.pengumuman')
+        @can('lihat pengumuman', 'tambah pengumuman', 'lihat kategori pengumuman')
         <li class="nav-header">{{ __('Sekolah') }}</li>
         <li class="nav-item">
             <a href="#" class="nav-link">
@@ -21,7 +21,7 @@
                 </p>
             </a>
             <ul class="nav nav-treeview">
-                @can('lihat.kategori.pengumuman')
+                @can('lihat kategori pengumuman')
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
@@ -29,7 +29,7 @@
                     </a>
                 </li>
                 @endcan
-                @can('lihat.pengumuman')
+                @can('lihat pengumuman')
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
@@ -37,7 +37,7 @@
                     </a>
                 </li>
                 @endcan
-                @can('tambah.pengumuman')
+                @can('tambah pengumuman')
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
@@ -48,7 +48,7 @@
             </ul>
         </li>
         @endcan
-        @can('lihat.kategori.artikel' || 'lihat.artikel' || 'tambah.artikel')
+        @can('lihat kategori artikel', 'lihat artikel', 'tambah artikel')
         <li class="nav-item">
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-file"></i>
@@ -58,7 +58,7 @@
                 </p>
             </a>
             <ul class="nav nav-treeview">
-                @can('lihat.kategori.artikel')
+                @can('lihat kategori artikel')
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
@@ -66,7 +66,7 @@
                     </a>
                 </li>
                 @endcan
-                @can('lihat.artikel')
+                @can('lihat artikel')
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
@@ -74,7 +74,7 @@
                     </a>
                 </li>
                 @endcan
-                @can('tambah.artikel')
+                @can('tambah artikel')
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
@@ -85,7 +85,7 @@
             </ul>
         </li>
         @endcan
-        @can('lihat.kategori.berita' || 'lihat.berita' || 'tambah.berita')
+        @can('lihat kategori berita', 'lihat berita', 'tambah berita')
         <li class="nav-item">
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-newspaper"></i>
@@ -95,7 +95,7 @@
                 </p>
             </a>
             <ul class="nav nav-treeview">
-                @can('lihat.kategori.berita')
+                @can('lihat kategori berita')
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
@@ -103,7 +103,7 @@
                     </a>
                 </li>
                 @endcan
-                @can('lihat.berita')
+                @can('lihat berita')
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
@@ -111,7 +111,7 @@
                     </a>
                 </li>
                 @endcan
-                @can('tambah.berita')
+                @can('tambah berita')
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
@@ -122,7 +122,7 @@
             </ul>
         </li>
         @endcan
-        @can('lihat.galeri' || 'tambah.galeri')
+        @can('lihat galeri', 'tambah galeri')
         <li class="nav-item">
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-images"></i>
@@ -132,7 +132,7 @@
                 </p>
             </a>
             <ul class="nav nav-treeview">
-                @can('lihat.galeri')
+                @can('lihat galeri')
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
@@ -140,7 +140,7 @@
                     </a>
                 </li>
                 @endcan
-                @can('tambah.galeri')
+                @can('tambah galeri')
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
@@ -152,7 +152,7 @@
         </li>
         @endcan
         <li class="nav-header">{{ __('Sistem') }}</li>
-        @can('lihat.pengguna')
+        @can('lihat pengguna')
         <li class="nav-item">
             <a href="{{ route('backend.users.index') }}" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>
@@ -162,7 +162,7 @@
             </a>
         </li>
         @endcan
-        @can('lihat.role' || 'lihat.permission' || 'lihat.assign.permission')
+        @can('lihat role', 'lihat permission', 'lihat assign.permission')
         <li class="nav-item">
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-shield-alt"></i>
@@ -172,7 +172,7 @@
                 </p>
             </a>
             <ul class="nav nav-treeview">
-                @can('lihat.role')
+                @can('lihat role')
                 <li class="nav-item">
                     <a href="{{ route('backend.roles.index') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
@@ -180,7 +180,7 @@
                     </a>
                 </li>
                 @endcan
-                @can('lihat.permission')
+                @can('lihat permission')
                 <li class="nav-item">
                     <a href="{{ route('backend.permissions.index') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
@@ -188,7 +188,7 @@
                     </a>
                 </li>
                 @endcan
-                @can('lihat.assign.permission')
+                @can('lihat assign.permission')
                 <li class="nav-item">
                     <a href="{{ route('backend.assignpermission.index') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
@@ -199,7 +199,7 @@
             </ul>
         </li>
         @endcan
-        @can('lihat.pengaturan')
+        @can('lihat pengaturan')
         <li class="nav-item">
             <a href="{{ route('backend.setting.index') }}" class="nav-link">
                 <i class="nav-icon fas fa-cogs"></i>
@@ -210,7 +210,7 @@
         </li>
         @endcan
         <li class="nav-item">
-            <a href="{{ route('backend.profile.index', auth()->user()->id) }}" class="nav-link">
+            <a href="{{ route('backend.profile.index') }}" class="nav-link">
                 <i class="nav-icon fas fa-user"></i>
                 <p>
                     {{ __('Profil') }}

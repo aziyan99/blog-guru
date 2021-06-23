@@ -47,10 +47,12 @@
                         @enderror
                     </div>
                     <div class="form-group">
+                        @can('ubah pengaturan')
                         <button type="submit" class="btn btn-primary">
                             <i class="fas fa-image mr-2"></i>
                             {{ __('Ubah logo') }}
                         </button>
+                        @endcan
                     </div>
                 </form>
                 <hr>
@@ -107,10 +109,12 @@
                         @enderror
                     </div>
                     <div class="form-group">
+                        @can('ubah pengaturan')
                         <button class="btn btn-primary" type="submit">
                             <i class="fas fa-save mr-2"></i>
                             {{ __('Ubah') }}
                         </button>
+                        @endcan
                     </div>
                 </form>
             </div>

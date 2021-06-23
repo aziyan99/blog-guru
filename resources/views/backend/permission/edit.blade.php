@@ -46,14 +46,18 @@
                     </div>
                 </form>
                 <hr>
+                @can('hapus permission')
                 <button class="btn btn-danger" data-toggle="modal" data-target="#deletePermission">
                     <i class="fas fa-trash-alt mr-2"></i>
                     {{ __('Hapus permission') }}
                 </button>
+                @endcan
             </div>
         </div>
     </div>
 </div>
+
+@can('hapus permission')
 <div class="modal fade" id="deletePermission" tabindex="-1" aria-labelledby="deletePermissionLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -85,4 +89,5 @@
         </div>
     </div>
 </div>
+@endcan
 @endsection

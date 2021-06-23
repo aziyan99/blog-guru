@@ -58,10 +58,12 @@
                                         @if ($role->name == "Super Admin")
                                             <i class="text-muted">{{ __('Default role') }}</i>
                                         @else
+                                            @can('ubah assign permission')
                                             <a href="{{ route('backend.assignpermission.edit', $role) }}" class="btn btn-warning btn-sm">
                                                 <i class="fas fa-edit mr-2"></i>
                                                 {{ __('Ubah') }}
                                             </a>
+                                            @endcan
                                         @endif
                                     </td>
                                 </tr>

@@ -34,12 +34,14 @@
                 </h3>
             </div>
             <div class="card-body">
+                @can('tambah pengguna')
                 <div class="text-right mb-3">
                     <a href="{{ route('backend.users.create') }}" class="btn btn-primary">
                         <i class="fas fa-plus-circle mr-2"></i>
                         {{ __('Tambah Pengguna') }}
                     </a>
                 </div>
+                @endcan
                 <div class="table-responsive">
 
                     <table class="table table-hover">
@@ -80,15 +82,19 @@
                                     {{-- <span class="text-center text-muted"><i>{{ __('Pengguna default') }}</i></span>
                                     --}}
                                     @else
+                                    @can('ubah pengguna')
                                     <a href="{{ route('backend.users.edit', $user) }}" class="btn btn-warning btn-sm">
                                         <i class="fas fa-edit mr-2"></i>
                                         {{ __('Ubah') }}
                                     </a>
+                                    @endcan
                                     @endif
+                                    @can('lihat pengguna')
                                     <a href="{{ route('backend.users.show', $user) }}" class="btn btn-secondary btn-sm">
                                         <i class="fas fa-eye mr-2"></i>
                                         {{ __('Detail') }}
                                     </a>
+                                    @endcan
                                 </td>
                             </tr>
                             @empty

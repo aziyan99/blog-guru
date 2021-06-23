@@ -34,14 +34,15 @@
                 </h3>
             </div>
             <div class="card-body">
+                @can('tambah permission')
                 <div class="text-right mb-3">
                     <a href="{{ route('backend.permissions.create') }}" class="btn btn-primary">
                         <i class="fas fa-plus-circle mr-2"></i>
                         {{ __('Tambah Permission') }}
                     </a>
                 </div>
+                @endcan
                 <div class="table-responsive">
-
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -60,11 +61,13 @@
                                 <td>{{ $permission->guard_name }}</td>
                                 <td>{{ $permission->created_at->diffForHumans() }}</td>
                                 <td>
+                                    @can('ubah permission')
                                     <a href="{{ route('backend.permissions.edit', $permission->id) }}"
                                         class="btn btn-sm btn-warning">
                                         <i class="fas fa-edit mr-2"></i>
                                         {{ __('Ubah') }}
                                     </a>
+                                    @endcan
                                 </td>
                             </tr>
                             @empty
