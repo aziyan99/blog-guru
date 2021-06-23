@@ -50,6 +50,7 @@
                                 <th>{{ __('email') }}</th>
                                 <th>{{ __('No.hp') }}</th>
                                 <th>{{ __('Role') }}</th>
+                                <th>{{ __('Gambar') }}</th>
                                 <th>{{ __('Tanggal dibuat') }}</th>
                                 <th>
 
@@ -67,6 +68,11 @@
                                     @foreach ($user->roles as $user_role)
                                     <span class="badge badge-info">{{ $user_role->name }}</span>
                                     @endforeach
+                                </td>
+                                <td>
+                                    <a href="{{ asset('storage') . "/" . $user->image }}" target="_blank">
+                                        <img src="{{ asset('storage') . "/" . $user->image }}" alt="img" width="50" class="img-thumbnail">
+                                    </a>
                                 </td>
                                 <td>{{ $user->created_at->diffForHumans() }}</td>
                                 <td>

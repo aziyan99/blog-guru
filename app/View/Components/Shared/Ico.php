@@ -1,25 +1,22 @@
 <?php
 
-namespace App\View\Components\Backend\Shareds;
+namespace App\View\Components\Shared;
 
 use App\Models\Setting;
 use Illuminate\View\Component;
 
-class SideMenuLogo extends Component
+class Ico extends Component
 {
+    public $logo;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-
-    public $school_name;
-    public $logo;
-
     public function __construct()
     {
         $setting = Setting::first();
-        $this->school_name = $setting->school_name;
         $this->logo = $setting->logo;
     }
 
@@ -30,6 +27,6 @@ class SideMenuLogo extends Component
      */
     public function render()
     {
-        return view('components.backend.shareds.side-menu-logo');
+        return view('components.shared.ico');
     }
 }

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Laravolt\Avatar\Avatar;
 use Spatie\Permission\Models\Role;
 
 class UserSeeder extends Seeder
@@ -16,10 +17,15 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        $avatar = new Avatar();
+        $image = time() . ".png";
+        $avatar->create('Super Admin')->save(storage_path('app/public/profile_images/' . $image));
+        $saveImage = "profile_images/" . $image;
         $user = User::create([
             'name' => 'Super admin',
             'email' => 'superadmin@example.com',
-            'password' => Hash::make('password')
+            'password' => Hash::make('password'),
+            'image' => $saveImage
         ]);
         $role = Role::findById(1);
         $user->assignRole($role->name);

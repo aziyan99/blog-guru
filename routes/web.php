@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\ResetPasswordUserController;
+use App\Http\Controllers\Backend\SettingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -54,6 +55,12 @@ Route::group(['prefix' => 'backend', 'as' => 'backend.', 'middleware' => 'auth']
 
     Route::resource('/users', UserController::class);
     Route::put('/users/{user}/resetpassword', [ResetPasswordUserController::class, 'resetPassword'])->name('users.reset.password');
+
+    Route::group(['prefix' => 'settings'], function () {
+        Route::get('/index', [SettingController::class, 'index'])->name('setting.index');
+        Route::put('/updateinformation/{setting}/', [SettingController::class, 'updateInformation'])->name('setting.update.information');
+        Route::put('/updatelogo/{setting}/', [SettingController::class, 'updateLogo'])->name('setting.update.logo');
+    });
 });
 
 
