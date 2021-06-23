@@ -8,7 +8,7 @@
             <a href="{{ route('backend.dashboard.index') }}" class="nav-link">{{ __('Dashboard') }}</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">{{ __('Pengaturan') }}</a>
+            <a href="{{ route('backend.setting.index') }}" class="nav-link">{{ __('Pengaturan') }}</a>
         </li>
     </ul>
 

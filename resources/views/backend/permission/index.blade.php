@@ -3,15 +3,15 @@
 @section('title', 'Permission')
 
 @section('breadcump')
-    <div class="col-sm-6">
-        <h1 class="m-0">{{ __('Permission') }}</h1>
-    </div>
-    <div class="col-sm-6">
-        <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="{{ route('backend.dashboard.index') }}">{{ __('Home') }}</a></li>
-            <li class="breadcrumb-item active">{{ __('Permission') }}</li>
-        </ol>
-    </div>
+<div class="col-sm-6">
+    <h1 class="m-0">{{ __('Permission') }}</h1>
+</div>
+<div class="col-sm-6">
+    <ol class="breadcrumb float-sm-right">
+        <li class="breadcrumb-item"><a href="{{ route('backend.dashboard.index') }}">{{ __('Home') }}</a></li>
+        <li class="breadcrumb-item active">{{ __('Permission') }}</li>
+    </ol>
+</div>
 @endsection
 
 @section('main')
@@ -40,39 +40,46 @@
                         {{ __('Tambah Permission') }}
                     </a>
                 </div>
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>{{ __('Nama permission') }}</th>
-                            <th>{{ __('Guard name') }}</th>
-                            <th>{{ __('Tanggal dibuat') }}</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse ($permissions as $permission)
+                <div class="table-responsive">
+
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>{{ __('Nama permission') }}</th>
+                                <th>{{ __('Guard name') }}</th>
+                                <th>{{ __('Tanggal dibuat') }}</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse ($permissions as $permission)
                             <tr>
                                 <td>{{ $permission->id }}</td>
                                 <td>{{ $permission->name }}</td>
                                 <td>{{ $permission->guard_name }}</td>
                                 <td>{{ $permission->created_at->diffForHumans() }}</td>
                                 <td>
-                                    <a href="{{ route('backend.permissions.edit', $permission->id) }}" class="btn btn-sm btn-warning">
+                                    <a href="{{ route('backend.permissions.edit', $permission->id) }}"
+                                        class="btn btn-sm btn-warning">
                                         <i class="fas fa-edit mr-2"></i>
                                         {{ __('Ubah') }}
                                     </a>
                                 </td>
                             </tr>
-                        @empty
+                            @empty
                             <tr>
                                 <td colspan="5" class="text-center">
                                     <i>{{ __('Data permission kosong') }}</i>
                                 </td>
                             </tr>
-                        @endforelse
-                    </tbody>
-                </table>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mb-3 mt-3 float-right">
+                    {{ $permissions->links() }}
+                </div>
             </div>
         </div>
     </div>
