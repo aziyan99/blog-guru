@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\AnnouncementCategory;
+use App\Models\ArticleCategory;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -52,6 +53,7 @@ class RouteServiceProvider extends ServiceProvider
 
         // Route model binding
         Route::model('announcementCategory', AnnouncementCategory::class);
+        Route::model('articleCategory', ArticleCategory::class);
     }
 
     /**

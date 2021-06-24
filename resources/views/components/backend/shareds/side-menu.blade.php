@@ -60,7 +60,7 @@
             <ul class="nav nav-treeview">
                 @can('lihat kategori artikel')
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('backend.article.category.index') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>{{ __('Kategori Artikel') }}</p>
                     </a>

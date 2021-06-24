@@ -31,7 +31,7 @@ class AnnouncementCategoryController extends Controller
         $request->validate([
             'name' => 'required|unique:announcement_categories,name'
         ]);
-        AnnouncementCategory::create($request->all());
+        AnnouncementCategory::create($request->all() + ['slug' => Str::slug($request->name)]);
         return back()->with('success', 'Kategori pengumuman berhasil disimpan');
     }
 
@@ -59,7 +59,7 @@ class AnnouncementCategoryController extends Controller
         $request->validate([
             'name' => 'required|unique:announcement_categories,name,' . $announcementCategory->id
         ]);
-        $announcementCategory->update($request->all());
+        $announcementCategory->update($request->all() + ['slug' => Str::slug($request->name)]);
         return redirect()->route('backend.announcement.category.index')->with('success', 'Kategori pengumuman berhasil diubah');
     }
 
