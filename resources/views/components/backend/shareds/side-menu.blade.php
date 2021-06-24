@@ -2,7 +2,8 @@
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         @can('lihat dasbor')
         <li class="nav-item">
-            <a href="{{ route('backend.dashboard.index') }}" class="nav-link">
+            <a href="{{ route('backend.dashboard.index') }}"
+                class="nav-link {{ (Request::is('backend/dashboard')) ? 'active' : '' }}">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                     {{ __('Dashboard') }}
@@ -12,8 +13,10 @@
         @endcan
         @can('lihat pengumuman', 'tambah pengumuman', 'lihat kategori pengumuman')
         <li class="nav-header">{{ __('Sekolah') }}</li>
-        <li class="nav-item">
-            <a href="#" class="nav-link">
+        <li class="nav-item {{ (Request::is('backend/announcementcategories/*')) ? 'menu-open' : '' }} {{ (Request::is('backend/announcementcategories')) ? 'menu-open' : '' }}
+        {{ (Request::is('backend/announcements/*')) ? 'menu-open' : '' }} {{ (Request::is('backend/announcements')) ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ (Request::is('backend/announcementcategories/*')) ? 'active' : '' }} {{ (Request::is('backend/announcementcategories')) ? 'active' : '' }}
+        {{ (Request::is('backend/announcements/*')) ? 'active' : '' }} {{ (Request::is('backend/announcements')) ? 'active' : '' }}">
                 <i class="nav-icon fas fa-bullhorn"></i>
                 <p>
                     {{ __('Pengumuman') }}
@@ -23,7 +26,7 @@
             <ul class="nav nav-treeview">
                 @can('lihat kategori pengumuman')
                 <li class="nav-item">
-                    <a href="{{ route('backend.announcement.category.index') }}" class="nav-link">
+                    <a href="{{ route('backend.announcement.category.index') }}" class="nav-link {{ (Request::is('backend/announcementcategories/*')) ? 'active' : '' }} {{ (Request::is('backend/announcementcategories')) ? 'active' : '' }} ">
                         <i class="far fa-circle nav-icon"></i>
                         <p>{{ __('Kategori Pengumuman') }}</p>
                     </a>
@@ -31,17 +34,9 @@
                 @endcan
                 @can('lihat pengumuman')
                 <li class="nav-item">
-                    <a href="{{ route('backend.announcements.index') }}" class="nav-link">
+                    <a href="{{ route('backend.announcements.index') }}" class="nav-link {{ (Request::is('backend/announcements/*')) ? 'active' : '' }} {{ (Request::is('backend/announcements')) ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>{{ __('Data Pengumuman') }}</p>
-                    </a>
-                </li>
-                @endcan
-                @can('tambah pengumuman')
-                <li class="nav-item">
-                    <a href="{{ route('backend.announcements.create') }}" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>{{ __('Tambah Pengumuman') }}</p>
                     </a>
                 </li>
                 @endcan
@@ -49,8 +44,10 @@
         </li>
         @endcan
         @can('lihat kategori artikel', 'lihat artikel', 'tambah artikel')
-        <li class="nav-item">
-            <a href="#" class="nav-link">
+        <li class="nav-item {{ (Request::is('backend/articlecategories/*')) ? 'menu-open' : '' }} {{ (Request::is('backend/articlecategories')) ? 'menu-open' : '' }}
+        {{ (Request::is('backend/articles/*')) ? 'menu-open' : '' }} {{ (Request::is('backend/articles')) ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ (Request::is('backend/articlecategories/*')) ? 'active' : '' }} {{ (Request::is('backend/articlecategories')) ? 'active' : '' }}
+        {{ (Request::is('backend/articles/*')) ? 'active' : '' }} {{ (Request::is('backend/articles')) ? 'active' : '' }}">
                 <i class="nav-icon fas fa-file"></i>
                 <p>
                     {{ __('Artikel') }}
@@ -60,7 +57,7 @@
             <ul class="nav nav-treeview">
                 @can('lihat kategori artikel')
                 <li class="nav-item">
-                    <a href="{{ route('backend.article.category.index') }}" class="nav-link">
+                    <a href="{{ route('backend.article.category.index') }}" class="nav-link {{ (Request::is('backend/articlecategories/*')) ? 'active' : '' }} {{ (Request::is('backend/articlecategories')) ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>{{ __('Kategori Artikel') }}</p>
                     </a>
@@ -68,17 +65,9 @@
                 @endcan
                 @can('lihat artikel')
                 <li class="nav-item">
-                    <a href="{{ route('backend.articles.index') }}" class="nav-link">
+                    <a href="{{ route('backend.articles.index') }}" class="nav-link {{ (Request::is('backend/articles/*')) ? 'active' : '' }} {{ (Request::is('backend/articles')) ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>{{ __('Data Artikel') }}</p>
-                    </a>
-                </li>
-                @endcan
-                @can('tambah artikel')
-                <li class="nav-item">
-                    <a href="{{ route('backend.articles.create') }}" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>{{ __('Tambah Artikel') }}</p>
                     </a>
                 </li>
                 @endcan
@@ -117,7 +106,8 @@
         <li class="nav-header">{{ __('Sistem') }}</li>
         @can('lihat pengguna')
         <li class="nav-item">
-            <a href="{{ route('backend.users.index') }}" class="nav-link">
+            <a href="{{ route('backend.users.index') }}"
+                class="nav-link {{ (Request::is('backend/users')) ? 'active' : '' }}">
                 <i class="nav-icon fas fa-users"></i>
                 <p>
                     {{ __('Pengguna') }}
@@ -126,8 +116,14 @@
         </li>
         @endcan
         @can('lihat role', 'lihat permission', 'lihat assign.permission')
-        <li class="nav-item">
-            <a href="#" class="nav-link">
+        <li
+            class="nav-item {{ (Request::is('backend/roles/*')) ? 'menu-open' : '' }} {{ (Request::is('backend/roles')) ? 'menu-open' : '' }}
+        {{ (Request::is('backend/permissions/*')) ? 'menu-open' : '' }} {{ (Request::is('backend/permissions')) ? 'menu-open' : '' }}
+        {{ (Request::is('backend/assignpermission')) ? 'menu-open' : '' }} {{ (Request::is('backend/assignpermission/*')) ? 'menu-open' : '' }}">
+            <a href="#"
+                class="nav-link {{ (Request::is('backend/roles/*')) ? 'active' : '' }} {{ (Request::is('backend/roles')) ? 'active' : '' }}
+        {{ (Request::is('backend/permissions/*')) ? 'active' : '' }} {{ (Request::is('backend/permissions')) ? 'active' : '' }}
+        {{ (Request::is('backend/assignpermission')) ? 'active' : '' }} {{ (Request::is('backend/assignpermission/*')) ? 'active' : '' }}">
                 <i class="nav-icon fas fa-shield-alt"></i>
                 <p>
                     {{ __('Role & Permission') }}
@@ -137,7 +133,8 @@
             <ul class="nav nav-treeview">
                 @can('lihat role')
                 <li class="nav-item">
-                    <a href="{{ route('backend.roles.index') }}" class="nav-link">
+                    <a href="{{ route('backend.roles.index') }}" class="nav-link
+                    {{ (Request::is('backend/roles')) ? 'active' : '' }} {{ (Request::is('backend/roles/*')) ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>{{ __('Role') }}</p>
                     </a>
@@ -145,7 +142,8 @@
                 @endcan
                 @can('lihat permission')
                 <li class="nav-item">
-                    <a href="{{ route('backend.permissions.index') }}" class="nav-link">
+                    <a href="{{ route('backend.permissions.index') }}" class="nav-link
+                    {{ (Request::is('backend/permissions')) ? 'active' : '' }} {{ (Request::is('backend/permissions/*')) ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>{{ __('Permission') }}</p>
                     </a>
@@ -153,7 +151,8 @@
                 @endcan
                 @can('lihat assign.permission')
                 <li class="nav-item">
-                    <a href="{{ route('backend.assignpermission.index') }}" class="nav-link">
+                    <a href="{{ route('backend.assignpermission.index') }}" class="nav-link
+                    {{ (Request::is('backend/assignpermission')) ? 'active' : '' }} {{ (Request::is('backend/assignpermission/*')) ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>{{ __('Assign permission') }}</p>
                     </a>
@@ -164,7 +163,8 @@
         @endcan
         @can('lihat pengaturan')
         <li class="nav-item">
-            <a href="{{ route('backend.setting.index') }}" class="nav-link">
+            <a href="{{ route('backend.setting.index') }}"
+                class="nav-link {{ (Request::is('backend/settings/*')) ? 'active' : '' }}">
                 <i class="nav-icon fas fa-cogs"></i>
                 <p>
                     {{ __('Pengaturan') }}
@@ -173,7 +173,8 @@
         </li>
         @endcan
         <li class="nav-item">
-            <a href="{{ route('backend.profile.index') }}" class="nav-link">
+            <a href="{{ route('backend.profile.index') }}"
+                class="nav-link {{ (Request::is('backend/profile')) ? 'active' : '' }}">
                 <i class="nav-icon fas fa-user"></i>
                 <p>
                     {{ __('Profil') }}
@@ -181,8 +182,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('logout') }}"
-               onclick="event.preventDefault();
+            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                    document.getElementById('logout-form').submit();">
                 <i class="nav-icon fas fa-sign-out-alt"></i>
                 <p>
