@@ -15,7 +15,7 @@ class AnnouncementCategoryController extends Controller
      */
     public function index()
     {
-        $announcementCategories = AnnouncementCategory::paginate(10);
+        $announcementCategories = AnnouncementCategory::latest()->paginate(10);
         $announcementCategory = new AnnouncementCategory();
         return view('backend.announcement-category.index', compact('announcementCategories', 'announcementCategory'));
     }

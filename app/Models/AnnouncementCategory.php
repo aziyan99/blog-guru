@@ -12,4 +12,9 @@ class AnnouncementCategory extends Model
     protected $fillable = [
         'name'
     ];
+
+    public function announcements()
+    {
+        return $this->hasMany(Announcement::class);
+    }
 }

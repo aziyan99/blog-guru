@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\AnnouncementController;
 use App\Http\Controllers\Backend\AnnouncementCategoryController;
 use App\Http\Controllers\Backend\AssignPermissionController;
 use App\Http\Controllers\Backend\DashboardController;
@@ -90,6 +91,16 @@ Route::group(['prefix' => 'backend', 'as' => 'backend.', 'middleware' => 'auth']
         Route::post('/store', [AnnouncementCategoryController::class, 'store'])->name('announcement.category.store')->middleware('permission:tambah kategori pengumuman');
         Route::put('/update/{announcementCategory}', [AnnouncementCategoryController::class, 'update'])->name('announcement.category.update')->middleware('permission:ubah kategori pengumuman');
         Route::delete('/delete/{announcementCategory}', [AnnouncementCategoryController::class, 'destroy'])->name('announcement.category.destroy')->middleware('permission:hapus kategori pengumuman');
+    });
+
+    Route::group(['prefix' => 'announcements'], function () {
+        Route::get('/', [AnnouncementController::class, 'index'])->name('announcements.index')->middleware('permission:lihat pengumuman');
+        Route::get('/create', [AnnouncementController::class, 'create'])->name('announcements.create')->middleware('permission:tambah pengumuman');
+        Route::post('/', [AnnouncementController::class, 'store'])->name('announcements.store')->middleware('permission:tambah pengumuman');
+        Route::get('/{announcement}/edit', [AnnouncementController::class, 'edit'])->name('announcements.edit')->middleware('permission:ubah pengumuman');
+        Route::put('/{announcement}', [AnnouncementController::class, 'update'])->name('announcements.update')->middleware('permission:ubah pengumuman');
+        Route::delete('/{announcement}', [AnnouncementController::class, 'destroy'])->name('announcements.destroy')->middleware('permission:hapus pengumuman');
+        Route::get('/{announcement}', [AnnouncementController::class, 'show'])->name('announcements.show')->middleware('permission:lihat pengumuman');
     });
 });
 

@@ -31,7 +31,7 @@
                 @endcan
                 @can('lihat pengumuman')
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('backend.announcements.index') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>{{ __('Data Pengumuman') }}</p>
                     </a>
@@ -39,7 +39,7 @@
                 @endcan
                 @can('tambah pengumuman')
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('backend.announcements.create') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>{{ __('Tambah Pengumuman') }}</p>
                     </a>

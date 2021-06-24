@@ -38,14 +38,7 @@
             <div class="card-body">
                 <form action="{{ route('backend.announcement.category.store') }}" method="POST">
                     @csrf
-                    <div class="form-group">
-                        <label>{{ __('Nama kategori') }}</label>
-                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
-                            value="{{ old('name', $announcementCategory->name) }}">
-                        @error('name')
-                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
-                        @enderror
-                    </div>
+                    @include('backend.announcement-category._form')
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">
                             <i class="fas fa-save mr-2"></i>
@@ -98,6 +91,9 @@
                             @endforelse
                         </tbody>
                     </table>
+                </div>
+                <div class="mt-3 float-right">
+                    {{ $announcementCategories->links() }}
                 </div>
             </div>
         </div>
