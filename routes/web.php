@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\AnnouncementCategoryController;
 use App\Http\Controllers\Backend\AssignPermissionController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\PermissionController;
@@ -81,6 +82,14 @@ Route::group(['prefix' => 'backend', 'as' => 'backend.', 'middleware' => 'auth']
         Route::get('/index', [SettingController::class, 'index'])->name('setting.index')->middleware('permission:lihat pengaturan');
         Route::put('/updateinformation/{setting}/', [SettingController::class, 'updateInformation'])->name('setting.update.information')->middleware('permission:ubah pengaturan');
         Route::put('/updatelogo/{setting}/', [SettingController::class, 'updateLogo'])->name('setting.update.logo')->middleware('permission:ubah pengaturan');
+    });
+
+    Route::group(['prefix' => 'announcementcategories'], function () {
+        Route::get('/', [AnnouncementCategoryController::class, 'index'])->name('announcement.category.index')->middleware('permission:lihat kategori pengumuman');
+        Route::get('/{announcementCategory}/edit', [AnnouncementCategoryController::class, 'edit'])->name('announcement.category.edit')->middleware('permission:ubah kategori pengumuman');
+        Route::post('/store', [AnnouncementCategoryController::class, 'store'])->name('announcement.category.store')->middleware('permission:tambah kategori pengumuman');
+        Route::put('/update/{announcementCategory}', [AnnouncementCategoryController::class, 'update'])->name('announcement.category.update')->middleware('permission:ubah kategori pengumuman');
+        Route::delete('/delete/{announcementCategory}', [AnnouncementCategoryController::class, 'destroy'])->name('announcement.category.destroy')->middleware('permission:hapus kategori pengumuman');
     });
 });
 
