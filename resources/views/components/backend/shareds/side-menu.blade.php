@@ -68,7 +68,7 @@
                 @endcan
                 @can('lihat artikel')
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('backend.articles.index') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>{{ __('Data Artikel') }}</p>
                     </a>
@@ -76,46 +76,9 @@
                 @endcan
                 @can('tambah artikel')
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('backend.articles.create') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>{{ __('Tambah Artikel') }}</p>
-                    </a>
-                </li>
-                @endcan
-            </ul>
-        </li>
-        @endcan
-        @can('lihat kategori berita', 'lihat berita', 'tambah berita')
-        <li class="nav-item">
-            <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-newspaper"></i>
-                <p>
-                    {{ __('Berita') }}
-                    <i class="right fas fa-angle-left"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview">
-                @can('lihat kategori berita')
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>{{ __('Kategori Berita') }}</p>
-                    </a>
-                </li>
-                @endcan
-                @can('lihat berita')
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>{{ __('Data Berita') }}</p>
-                    </a>
-                </li>
-                @endcan
-                @can('tambah berita')
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>{{ __('Tambah Berita') }}</p>
                     </a>
                 </li>
                 @endcan

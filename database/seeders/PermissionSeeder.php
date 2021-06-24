@@ -224,56 +224,6 @@ class PermissionSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
-            /** Kategori Berita */
-            [
-                'name' => 'lihat kategori berita',
-                'guard_name' => 'web',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'name' => 'tambah kategori berita',
-                'guard_name' => 'web',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'name' => 'ubah kategori berita',
-                'guard_name' => 'web',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'name' => 'hapus kategori berita',
-                'guard_name' => 'web',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            /** Berita */
-            [
-                'name' => 'lihat berita',
-                'guard_name' => 'web',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'name' => 'tambah berita',
-                'guard_name' => 'web',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'name' => 'ubah berita',
-                'guard_name' => 'web',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'name' => 'hapus berita',
-                'guard_name' => 'web',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
             /** Galeri */
             [
                 'name' => 'lihat galeri',

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\AnnouncementController;
 use App\Http\Controllers\Backend\AnnouncementCategoryController;
 use App\Http\Controllers\Backend\ArticleCategoryController;
+use App\Http\Controllers\Backend\ArticleController;
 use App\Http\Controllers\Backend\AssignPermissionController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\PermissionController;
@@ -110,6 +111,16 @@ Route::group(['prefix' => 'backend', 'as' => 'backend.', 'middleware' => 'auth']
         Route::post('/store', [ArticleCategoryController::class, 'store'])->name('article.category.store')->middleware('permission:tambah kategori artikel');
         Route::put('/update/{articleCategory}', [ArticleCategoryController::class, 'update'])->name('article.category.update')->middleware('permission:ubah kategori artikel');
         Route::delete('/delete/{articleCategory}', [ArticleCategoryController::class, 'destroy'])->name('article.category.destroy')->middleware('permission:hapus kategori artikel');
+    });
+
+    Route::group(['prefix' => 'articles'], function () {
+        Route::get('/', [ArticleController::class, 'index'])->name('articles.index')->middleware('permission:lihat artikel');
+        Route::get('/create', [ArticleController::class, 'create'])->name('articles.create')->middleware('permission:tambah artikel');
+        Route::post('/', [ArticleController::class, 'store'])->name('articles.store')->middleware('permission:tambah artikel');
+        Route::get('/{article}/edit', [ArticleController::class, 'edit'])->name('articles.edit')->middleware('permission:ubah artikel');
+        Route::put('/{article}', [ArticleController::class, 'update'])->name('articles.update')->middleware('permission:ubah artikel');
+        Route::delete('/{article}', [ArticleController::class, 'destroy'])->name('articles.destroy')->middleware('permission:hapus artikel');
+        Route::get('/{article}', [ArticleController::class, 'show'])->name('articles.show')->middleware('permission:lihat artikel');
     });
 });
 
