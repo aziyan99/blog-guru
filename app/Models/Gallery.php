@@ -13,6 +13,12 @@ class Gallery extends Model
         'name', 'slug'
     ];
 
+    public function getImageCountAttribute()
+    {
+        $images = GalleryDetail::where('gallery_id', $this->id)->get()->count();
+        return $images;
+    }
+
     public function details()
     {
         return $this->hasMany(GalleryDetail::class);

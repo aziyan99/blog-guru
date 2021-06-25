@@ -134,8 +134,8 @@ Route::group(['prefix' => 'backend', 'as' => 'backend.', 'middleware' => 'auth']
         Route::delete('/{gallery}', [GalleryController::class, 'destroy'])->name('galleries.destroy')->middleware('permission:hapus galeri');
         Route::get('/{gallery}', [GalleryController::class, 'show'])->name('galleries.show')->middleware('permission:lihat galeri');
 
-        Route::post('/{gallery}/details/', [GalleryDetailController::class, 'store'])->name('galleries.details.store');
-        Route::delete('/{galleryDetail}/details', [GalleryDetailController::class, 'destroy'])->name('galleries.details.destroy');
+        Route::post('/{gallery}/details/', [GalleryDetailController::class, 'store'])->name('galleries.details.store')->middleware('permission:ubah galeri');
+        Route::delete('/{galleryDetail}/details', [GalleryDetailController::class, 'destroy'])->name('galleries.details.destroy')->middleware('permission:ubah galeri');
     });
 });
 

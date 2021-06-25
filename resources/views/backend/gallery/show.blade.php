@@ -50,7 +50,7 @@
                         <tr>
                             <th>{{ __('Jumlah gambar') }}</th>
                             <td>
-
+                                <span class="badge badge-info">{{ $gallery->image_count }}</span>
                             </td>
                         </tr>
                         <tr>
@@ -136,7 +136,8 @@
                                 <td>
                                     @can('ubah galeri')
                                     <a class="btn btn-sm btn-danger"
-                                        href="{{ route('backend.galleries.details.destroy', $detail) }}" onclick="event.preventDefault();
+                                        href="{{ route('backend.galleries.details.destroy', $detail) }}"
+                                        onclick="event.preventDefault();
                                                                             document.getElementById('delete{{ $detail->id }}').submit();">
                                         <i class="fas fa-trash-alt mr-2"></i>
                                         {{ __('Hapus') }}

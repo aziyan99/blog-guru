@@ -59,7 +59,7 @@
                                 <td>{{ $gallery->id }}</td>
                                 <td>{{ $gallery->name }}</td>
                                 <td>
-
+                                    <span class="badge badge-info">{{ $gallery->image_count }}</span>
                                 </td>
                                 <td>{{ $gallery->created_at->diffForHumans() }}</td>
                                 <td>
