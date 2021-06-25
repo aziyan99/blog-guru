@@ -6,6 +6,8 @@ use App\Http\Controllers\Backend\ArticleCategoryController;
 use App\Http\Controllers\Backend\ArticleController;
 use App\Http\Controllers\Backend\AssignPermissionController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\GalleryController;
+use App\Http\Controllers\Backend\GalleryDetailController;
 use App\Http\Controllers\Backend\PermissionController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\RoleController;
@@ -121,6 +123,19 @@ Route::group(['prefix' => 'backend', 'as' => 'backend.', 'middleware' => 'auth']
         Route::put('/{article}', [ArticleController::class, 'update'])->name('articles.update')->middleware('permission:ubah artikel');
         Route::delete('/{article}', [ArticleController::class, 'destroy'])->name('articles.destroy')->middleware('permission:hapus artikel');
         Route::get('/{article}', [ArticleController::class, 'show'])->name('articles.show')->middleware('permission:lihat artikel');
+    });
+
+    Route::group(['prefix' => 'galleries'], function () {
+        Route::get('/', [GalleryController::class, 'index'])->name('galleries.index')->middleware('permission:lihat galeri');
+        Route::get('/create', [GalleryController::class, 'create'])->name('galleries.create')->middleware('permission:tambah galeri');
+        Route::post('/', [GalleryController::class, 'store'])->name('galleries.store')->middleware('permission:tambah galeri');
+        Route::get('/{gallery}/edit', [GalleryController::class, 'edit'])->name('galleries.edit')->middleware('permission:ubah galeri');
+        Route::put('/{gallery}', [GalleryController::class, 'update'])->name('galleries.update')->middleware('permission:ubah galeri');
+        Route::delete('/{gallery}', [GalleryController::class, 'destroy'])->name('galleries.destroy')->middleware('permission:hapus galeri');
+        Route::get('/{gallery}', [GalleryController::class, 'show'])->name('galleries.show')->middleware('permission:lihat galeri');
+
+        Route::post('/{gallery}/details/', [GalleryDetailController::class, 'store'])->name('galleries.details.store');
+        Route::delete('/{galleryDetail}/details', [GalleryDetailController::class, 'destroy'])->name('galleries.details.destroy');
     });
 });
 
