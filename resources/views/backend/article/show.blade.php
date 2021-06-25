@@ -4,11 +4,11 @@
 
 @section('breadcump')
 <div class="col-sm-6">
-    <h1 class="m-0">Dashboard</h1>
+    <h1 class="m-0">{{ __('Dashboard') }}</h1>
 </div>
 <div class="col-sm-6">
     <ol class="breadcrumb float-sm-right">
-        <li class="breadcrumb-item"><a href="{{ route('backend.dashboard.index') }}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('backend.dashboard.index') }}">{{ __('Home') }}</a></li>
         <li class="breadcrumb-item">{{ __('Artikel') }}</li>
         <li class="breadcrumb-item active">{{ __('Detail') }}</li>
     </ol>

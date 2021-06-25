@@ -15,13 +15,12 @@
 </div>
 @endsection
 
-
 @section('main')
 <div class="row">
     <div class="col-md-6">
         <div class="card">
             <div class="card-header">
-                Form ubah role
+                {{ __('Form ubah role') }}
             </div>
             <div class="card-body">
                 <div class="text-right">

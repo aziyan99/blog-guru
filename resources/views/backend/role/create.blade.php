@@ -20,7 +20,7 @@
     <div class="col-md-6">
         <div class="card">
             <div class="card-header">
-                Form tambah role
+                {{ __('Form tambah role') }}
             </div>
             <div class="card-body">
                 <div class="text-right">

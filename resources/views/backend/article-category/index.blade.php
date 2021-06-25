@@ -8,7 +8,7 @@
 </div>
 <div class="col-sm-6">
     <ol class="breadcrumb float-sm-right">
-        <li class="breadcrumb-item"><a href="{{ route('backend.dashboard.index') }}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('backend.dashboard.index') }}">{{ __('Home') }}</a></li>
         <li class="breadcrumb-item">{{ __('Kategori Artikel') }}</li>
     </ol>
 </div>
