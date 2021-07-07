@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Announcement;
 use App\Models\AnnouncementCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class AnnouncementController extends Controller
 {
@@ -44,7 +45,7 @@ class AnnouncementController extends Controller
             'title' => 'required',
             'body' => 'required'
         ]);
-        Announcement::create($request->all());
+        Announcement::create($request->all() + ['slug' => Str::slug($request->title)]);
         return redirect()->route('backend.announcements.index')->with('success', 'Pengumuman berhasil disimpan');
     }
 
@@ -84,7 +85,7 @@ class AnnouncementController extends Controller
             'title' => 'required',
             'body' => 'required'
         ]);
-        $announcement->update($request->all());
+        $announcement->update($request->all() + ['slug' => Str::slug($request->title)]);
         return redirect()->route('backend.announcements.index')->with('success', 'Pengumuman berhasil diubah');
     }
 
