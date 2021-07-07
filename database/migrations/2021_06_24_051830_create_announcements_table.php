@@ -17,6 +17,7 @@ class CreateAnnouncementsTable extends Migration
             $table->id();
             $table->foreignId('announcement_category_id')->references('id')->on('announcement_categories')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->string('title');
+            $table->string('slug');
             $table->longText('body');
             $table->timestamps();
         });
