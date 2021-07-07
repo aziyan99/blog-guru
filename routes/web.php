@@ -14,6 +14,7 @@ use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\ResetPasswordUserController;
 use App\Http\Controllers\Backend\SettingController;
+use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,9 +28,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return response()->json(['msg' => 'Hello world!']);
-});
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
+
+Route::get('/artikel', [\App\Http\Controllers\Frontend\ArticleController::class, 'index'])->name('article.index');
+Route::get('/artikel/baca/{slug}', [\App\Http\Controllers\Frontend\ArticleController::class, 'show'])->name('article.show');
+Route::get('/artikel/kategori/{id}', [\App\Http\Controllers\Frontend\ArticleController::class, 'showByCategory'])->name('article.show.by.category');
+Route::get('/artikel/guru/{id}', [\App\Http\Controllers\Frontend\ArticleController::class, 'showByTeacher'])->name('article.show.by.teacher');
+
+Route::get('/pengumuman', [\App\Http\Controllers\Frontend\AnnouncementController::class, 'index'])->name('announcement.index');
+Route::get('/pengumuman/baca/{slug}', [\App\Http\Controllers\Frontend\AnnouncementController::class, 'show'])->name('announcement.show');
+Route::get('/pengumuman/kategori/{id}', [\App\Http\Controllers\Frontend\AnnouncementController::class, 'showByCategory'])->name('announcement.show.by.category');
+
+Route::get('/galeri', [\App\Http\Controllers\Frontend\GalleryController::class, 'index'])->name('gallery.index');
 
 Auth::routes([
     'register' => false, // Registration Routes...
@@ -86,6 +96,7 @@ Route::group(['prefix' => 'backend', 'as' => 'backend.', 'middleware' => 'auth']
         Route::get('/index', [SettingController::class, 'index'])->name('setting.index')->middleware('permission:lihat pengaturan');
         Route::put('/updateinformation/{setting}/', [SettingController::class, 'updateInformation'])->name('setting.update.information')->middleware('permission:ubah pengaturan');
         Route::put('/updatelogo/{setting}/', [SettingController::class, 'updateLogo'])->name('setting.update.logo')->middleware('permission:ubah pengaturan');
+        Route::put('/updatefrontimage/{setting}/', [SettingController::class, 'updateFrontImage'])->name('setting.update.front.image')->middleware('permission:ubah pengaturan');
     });
 
     Route::group(['prefix' => 'announcementcategories'], function () {
@@ -137,6 +148,3 @@ Route::group(['prefix' => 'backend', 'as' => 'backend.', 'middleware' => 'auth']
         Route::delete('/{galleryDetail}/details', [GalleryDetailController::class, 'destroy'])->name('galleries.details.destroy')->middleware('permission:ubah galeri');
     });
 });
-
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
