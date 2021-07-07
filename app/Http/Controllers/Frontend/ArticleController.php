@@ -47,8 +47,8 @@ class ArticleController extends Controller
 
     public function showByTeacher($id)
     {
-        $isByCategory = true;
-        $isByTeacher = false;
+        $isByCategory = false;
+        $isByTeacher = true;
         $latest_articles = User::with('articles')->where('id', $id)->firstOrFail();
         return view('frontend.article.index', compact('latest_articles', 'isByCategory', 'isByTeacher'));
     }
