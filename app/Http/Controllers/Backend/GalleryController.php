@@ -94,7 +94,7 @@ class GalleryController extends Controller
      */
     public function destroy(Gallery $gallery)
     {
-        $details = GalleryDetail::where('gallery_id', $gallery->id)->latest()->paginate(5);
+        $details = GalleryDetail::where('gallery_id', $gallery->id)->get();
         foreach ($details as $detail) {
             if (Storage::disk('public')->exists($detail->image)) {
                 Storage::disk('public')->delete($detail->image);
