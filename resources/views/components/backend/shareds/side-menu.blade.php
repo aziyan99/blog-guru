@@ -11,6 +11,14 @@
             </a>
         </li>
         @endcan
+        <li class="nav-item">
+            <a href="{{ route('home.index') }}" target="_blank" class="nav-link">
+                <i class="nav-icon fas fa-globe"></i>
+                <p>
+                    {{ __('Halaman Utama') }}
+                </p>
+            </a>
+        </li>
         @can('lihat pengumuman', 'tambah pengumuman', 'lihat kategori pengumuman')
         <li class="nav-header">{{ __('Sekolah') }}</li>
         <li class="nav-item {{ (Request::is('backend/announcementcategories/*')) ? 'menu-open' : '' }} {{ (Request::is('backend/announcementcategories')) ? 'menu-open' : '' }}
