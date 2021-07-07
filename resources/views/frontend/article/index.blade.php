@@ -61,8 +61,8 @@
                 <div class="info">
                     <h3>{{ $article->title }}</h3>
                     <p class="info-line">
-                        <a href="{{ route('article.show.by.category', $latest_articles->category->id) }}" style="margin-right: 20px;">
-                            <i class="fas fa-thumbtack" style="margin-right: 5px;"></i>{{ $latest_articles->name }}
+                        <a href="{{ route('article.show.by.category', $article->category->id) }}" style="margin-right: 20px;">
+                            <i class="fas fa-thumbtack" style="margin-right: 5px;"></i>{{ $article->category->name }}
                         </a>
                         <a href="{{ route('article.show.by.teacher', $latest_articles->id) }}">
                             <i class="fas fa-user" style="margin-right: 5px;"></i>{{ $latest_articles->name }}
