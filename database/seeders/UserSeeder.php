@@ -19,10 +19,10 @@ class UserSeeder extends Seeder
     {
         $avatar = new Avatar();
         $image = time() . ".png";
-        $avatar->create('Super Admin')->save(storage_path('app/public/profile_images/' . $image));
+        $avatar->create('Budi Rahmat')->save(storage_path('app/public/profile_images/' . $image));
         $saveImage = "profile_images/" . $image;
         $user = User::create([
-            'name' => 'Super admin',
+            'name' => 'Budi Rahmat',
             'email' => 'superadmin@example.com',
             'password' => Hash::make('password'),
             'image' => $saveImage

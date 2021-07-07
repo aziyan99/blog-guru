@@ -20,7 +20,7 @@ class AddColumnToSettingsTable extends Migration
             $table->string('facebook');
             $table->string('instagram');
             $table->string('youtube');
-            $table->string('twitter');
+            $table->string('twitter')->nullable();
         });
     }
 
