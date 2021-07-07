@@ -64,7 +64,7 @@
                         </tr>
                         <tr>
                             <th>{{ __('Isi artikel') }}</th>
-                            <td>{{ $article->body }}</td>
+                            <td>{!! $article->body !!}</td>
                         </tr>
                     </table>
                     <div class="mt-3">

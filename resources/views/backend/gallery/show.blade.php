@@ -138,7 +138,7 @@
                                     <a class="btn btn-sm btn-danger"
                                         href="{{ route('backend.galleries.details.destroy', $detail) }}"
                                         onclick="event.preventDefault();
-                                                                            document.getElementById('delete{{ $detail->id }}').submit();">
+                                                    document.getElementById('delete{{ $detail->id }}').submit();">
                                         <i class="fas fa-trash-alt mr-2"></i>
                                         {{ __('Hapus') }}
                                     </a>

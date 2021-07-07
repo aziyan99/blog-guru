@@ -41,7 +41,7 @@
                         {{ __('Tambah Role') }}
                     </a>
                 </div>
-                @endcan
+                @endif
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>

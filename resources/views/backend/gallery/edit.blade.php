@@ -40,7 +40,7 @@
                             <i class="fas fa-save mr-2"></i>
                             {{ __('Ubah') }}
                         </button>
-                        <a href="{{ route('backend.announcements.index') }}" class="btn btn-secondary">
+                        <a href="{{ route('backend.galleries.index') }}" class="btn btn-secondary">
                             <i class="fas fa-times mr-2"></i>
                             {{ __('Batal') }}
                         </a>

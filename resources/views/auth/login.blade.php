@@ -5,12 +5,12 @@
 @section('main')
 <div class="login-box">
     <div class="login-logo">
-        <a href="{{ route('login') }}"><b>Admin</b>LTE</a>
+        <a href="{{ route('login') }}"><b>{{ __('Login kedalam sistem') }}</b></a>
     </div>
     <!-- /.login-logo -->
     <div class="card">
         <div class="card-body login-card-body">
-            <p class="login-box-msg">Sign in to start your session</p>
+            <p class="login-box-msg">{{ __('Silahkan lengkapi email dan password anda') }}</p>
 
             <form action="{{ route('login') }}" method="post">
                 @csrf
@@ -49,13 +49,13 @@
                                 {{ old('remember') ? 'checked' : '' }}>
 
                             <label class="form-check-label" for="remember">
-                                {{ __('Remember Me') }}
+                                {{ __('Ingat Saya') }}
                             </label>
                         </div>
                     </div>
                     <!-- /.col -->
                     <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                        <button type="submit" class="btn btn-primary btn-block">{{ __('Login') }}</button>
                     </div>
                     <!-- /.col -->
                 </div>

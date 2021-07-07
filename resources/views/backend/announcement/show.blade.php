@@ -47,7 +47,7 @@
                         </tr>
                         <tr>
                             <th>{{ __('Pengumuman') }}</th>
-                            <td>{{ $announcement->body }}</td>
+                            <td>{!! $announcement->body !!}</td>
                         </tr>
                     </table>
                 </div>

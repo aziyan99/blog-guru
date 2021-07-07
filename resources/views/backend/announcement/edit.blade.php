@@ -91,3 +91,18 @@
     </div>
 </div>
 @endsection
+
+@push('css')
+<link rel="stylesheet" href="{{ asset('admin') }}/plugins/summernote/summernote-bs4.min.css">
+@endpush
+@push('js')
+<script src="{{ asset('admin') }}/plugins/summernote/summernote-bs4.min.js"></script>
+<script>
+    $(function () {
+        // Summernote
+        $('#editor').summernote({
+            height: 500
+        });
+    });
+</script>
+@endpush

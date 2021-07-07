@@ -23,6 +23,7 @@
                 {{ __('Form tambah permission') }}
             </div>
             <div class="card-body">
+                @if (config('app.debug') == true)
                 <div class="text-right">
                     <a href="{{ route('backend.permissions.index') }}" class="btn btn-secondary">
                         <i class="fas fa-arrow-left mr-2"></i>
@@ -43,6 +44,7 @@
                         </a>
                     </div>
                 </form>
+                @endif
             </div>
         </div>
     </div>

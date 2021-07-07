@@ -34,6 +34,7 @@
                 </h3>
             </div>
             <div class="card-body">
+                @if (config('app.debug') == true)
                 @can('tambah permission')
                 <div class="text-right mb-3">
                     <a href="{{ route('backend.permissions.create') }}" class="btn btn-primary">
@@ -42,6 +43,7 @@
                     </a>
                 </div>
                 @endcan
+                @endif
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
@@ -61,6 +63,7 @@
                                 <td>{{ $permission->guard_name }}</td>
                                 <td>{{ $permission->created_at->diffForHumans() }}</td>
                                 <td>
+                                    @if (config('app.debug') == true)
                                     @can('ubah permission')
                                     <a href="{{ route('backend.permissions.edit', $permission->id) }}"
                                         class="btn btn-sm btn-warning">
@@ -68,6 +71,7 @@
                                         {{ __('Ubah') }}
                                     </a>
                                     @endcan
+                                    @endif
                                 </td>
                             </tr>
                             @empty

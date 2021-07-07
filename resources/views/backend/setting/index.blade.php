@@ -3,15 +3,15 @@
 @section('title', 'Pengaturan')
 
 @section('breadcump')
-    <div class="col-sm-6">
-        <h1 class="m-0">{{ __('Pengaturan') }}</h1>
-    </div>
-    <div class="col-sm-6">
-        <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="{{ route('backend.dashboard.index') }}">{{ __('Home') }}</a></li>
-            <li class="breadcrumb-item active">{{ __('Pengaturan') }}</li>
-        </ol>
-    </div>
+<div class="col-sm-6">
+    <h1 class="m-0">{{ __('Pengaturan') }}</h1>
+</div>
+<div class="col-sm-6">
+    <ol class="breadcrumb float-sm-right">
+        <li class="breadcrumb-item"><a href="{{ route('backend.dashboard.index') }}">{{ __('Home') }}</a></li>
+        <li class="breadcrumb-item active">{{ __('Pengaturan') }}</li>
+    </ol>
+</div>
 @endsection
 
 @section('main')
@@ -34,16 +34,17 @@
                 </h3>
             </div>
             <div class="card-body">
-                <form action="{{ route('backend.setting.update.logo', $setting) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('backend.setting.update.logo', $setting) }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
                         <label>{{ __('Logo baru') }}</label>
                         <input type="file" name="logo" class="form-control @error('logo') is-invalid @enderror">
                         @error('logo')
-                            <small class="invalid-feedback">
-                                {{ $message }}
-                            </small>
+                        <small class="invalid-feedback">
+                            {{ $message }}
+                        </small>
                         @enderror
                     </div>
                     <div class="form-group">
@@ -58,7 +59,45 @@
                 <hr>
                 <h5>{{ __('Logo sebelumnya') }}</h5>
                 <a href="{{ asset('storage') . "/" . $setting->logo }}" target="_blank">
-                    <img src="{{ asset('storage') . "/" . $setting->logo }}" alt="logo" class="img-thumbnail" width="250">
+                    <img src="{{ asset('storage') . "/" . $setting->logo }}" alt="logo" class="img-thumbnail"
+                        width="250">
+                </a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    {{ __('Ubah gambar depan') }}
+                </h3>
+            </div>
+            <div class="card-body">
+                <form action="{{ route('backend.setting.update.front.image', $setting) }}" method="POST"
+                    enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <div class="form-group">
+                        <label>{{ __('Gambar baru') }}</label>
+                        <input type="file" name="front_image" class="form-control @error('front_image') is-invalid @enderror">
+                        @error('front_image')
+                        <small class="invalid-feedback">
+                            {{ $message }}
+                        </small>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        @can('ubah pengaturan')
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-image mr-2"></i>
+                            {{ __('Ubah gambar') }}
+                        </button>
+                        @endcan
+                    </div>
+                </form>
+                <hr>
+                <h5>{{ __('Gambar sebelumnya') }}</h5>
+                <a href="{{ asset('storage') . "/" . $setting->front_image }}" target="_blank">
+                    <img src="{{ asset('storage') . "/" . $setting->front_image }}" alt="front_image" class="img-thumbnail"
+                        width="250">
                 </a>
             </div>
         </div>
@@ -77,36 +116,106 @@
                     <div class="form-group">
                         <label>{{ __('Nama sekolah') }}</label>
                         <input type="text" name="school_name"
-                        class="form-control @error('school_name') is-invalid @enderror"
-                        value="{{ old('school_name', $setting->school_name) }}">
+                            class="form-control @error('school_name') is-invalid @enderror"
+                            value="{{ old('school_name', $setting->school_name) }}">
                         @error('school_name')
-                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label>{{ __('Email') }}</label>
-                        <input type="text" name="email"
-                        class="form-control @error('email') is-invalid @enderror"
-                        value="{{ old('email', $setting->email) }}">
+                        <input type="text" name="email" class="form-control @error('email') is-invalid @enderror"
+                            value="{{ old('email', $setting->email) }}">
                         @error('email')
-                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label>{{ __('No.hp') }}</label>
                         <input type="text" name="phone_number"
-                        class="form-control @error('phone_number') is-invalid @enderror"
-                        value="{{ old('phone_number', $setting->phone_number) }}">
+                            class="form-control @error('phone_number') is-invalid @enderror"
+                            value="{{ old('phone_number', $setting->phone_number) }}">
                         @error('phone_number')
-                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label>{{ __('Alamat') }}</label>
-                        <textarea name="address" cols="30" rows="3" class="form-control @error('email') is-invalid @enderror">{{ old('address', $setting->address) }}</textarea>
-                        @error('email')
-                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        <textarea name="address" cols="30" rows="3"
+                            class="form-control @error('address') is-invalid @enderror">{{ old('address', $setting->address) }}</textarea>
+                        @error('address')
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
                         @enderror
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>{{ __('Visi') }}</label>
+                                <textarea name="visi" cols="30" rows="3"
+                                    class="form-control @error('visi') is-invalid @enderror">{{ old('address', $setting->visi) }}</textarea>
+                                @error('visi')
+                                <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>{{ __('Misi') }}</label>
+                                <textarea name="misi" cols="30" rows="3"
+                                    class="form-control @error('misi') is-invalid @enderror">{{ old('address', $setting->misi) }}</textarea>
+                                @error('misi')
+                                <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label>{{ __('Facebook') }}</label>
+                                <input type="text" name="facebook"
+                                    class="form-control @error('facebook') is-invalid @enderror"
+                                    value="{{ old('facebook', $setting->facebook) }}">
+                                @error('facebook')
+                                <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>{{ __('Youtube') }}</label>
+                                <input type="text" name="youtube"
+                                    class="form-control @error('youtube') is-invalid @enderror"
+                                    value="{{ old('youtube', $setting->youtube) }}">
+                                @error('youtube')
+                                <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label>{{ __('Instagram') }}</label>
+                                <input type="text" name="instagram"
+                                    class="form-control @error('instagram') is-invalid @enderror"
+                                    value="{{ old('instagram', $setting->instagram) }}">
+                                @error('instagram')
+                                <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>{{ __('Twitter') }}</label>
+                                <input type="text" name="twitter"
+                                    class="form-control @error('twitter') is-invalid @enderror"
+                                    value="{{ old('twitter', $setting->twitter) }}">
+                                @error('twitter')
+                                <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                                @enderror
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         @can('ubah pengaturan')

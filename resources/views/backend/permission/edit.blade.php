@@ -3,16 +3,16 @@
 @section('title', 'Permission')
 
 @section('breadcump')
-    <div class="col-sm-6">
-        <h1 class="m-0">{{ __('Ubah Permission') }}</h1>
-    </div>
-    <div class="col-sm-6">
-        <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="{{ route('backend.dashboard.index') }}">{{ __('Home') }}</a></li>
-            <li class="breadcrumb-item">{{ __('Permission') }}</li>
-            <li class="breadcrumb-item active">{{ __('Ubah') }}</li>
-        </ol>
-    </div>
+<div class="col-sm-6">
+    <h1 class="m-0">{{ __('Ubah Permission') }}</h1>
+</div>
+<div class="col-sm-6">
+    <ol class="breadcrumb float-sm-right">
+        <li class="breadcrumb-item"><a href="{{ route('backend.dashboard.index') }}">{{ __('Home') }}</a></li>
+        <li class="breadcrumb-item">{{ __('Permission') }}</li>
+        <li class="breadcrumb-item active">{{ __('Ubah') }}</li>
+    </ol>
+</div>
 @endsection
 
 
@@ -24,6 +24,7 @@
                 {{ __('Form ubah permission') }}
             </div>
             <div class="card-body">
+                @if (config('APP_DEBUG') == true)
                 <div class="text-right">
                     <a href="{{ route('backend.permissions.index') }}" class="btn btn-secondary">
                         <i class="fas fa-arrow-left mr-2"></i>
@@ -52,6 +53,7 @@
                     {{ __('Hapus permission') }}
                 </button>
                 @endcan
+                @endif
             </div>
         </div>
     </div>

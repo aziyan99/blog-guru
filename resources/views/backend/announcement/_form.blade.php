@@ -23,7 +23,7 @@
 </div>
 <div class="form-group">
     <label>{{ __('Pengumuman') }}</label>
-    <textarea name="body" cols="30" rows="8"
+    <textarea name="body" cols="30" rows="8" id="editor"
         class="form-control @error('body') is-invalid @enderror">{{ old('body', $announcement->body) }}</textarea>
     @error('body')
     <small class="invalid-feedback" role="alert">{{ $message }}</small>

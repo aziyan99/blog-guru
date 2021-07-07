@@ -32,8 +32,8 @@
     <div class="col-md-8">
         <div class="form-group">
             <label>{{ __('Isi artikel') }}</label>
-            <textarea name="body" cols="30" rows="10"
-                class="form-control @error('body') is-invalid @enderror">{{ old('body', $article->body) }}</textarea>
+            <textarea name="body" cols="30" rows="10" id="editor"
+                class="form-control editor @error('body') is-invalid @enderror">{{ old('body', $article->body) }}</textarea>
             @error('body')
             <small class="invalid-feedback" role="alert">{{ $message }}</small>
             @enderror
