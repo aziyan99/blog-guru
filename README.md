@@ -1,3 +1,23 @@
+## Teacher Blog's
+Teacher blog is an app made with laravel for teacher to share their knowledge base on category
+
+## Previews
+![Homepage](https://i.ibb.co/Z8vqNkH/Screen-Shot-2021-08-13-at-11-13-57.png "Homepage")
+![Dashboard](https://i.ibb.co/r6wBzRv/Screen-Shot-2021-08-13-at-11-13-32.png "Dashboard")
+![Article](https://i.ibb.co/ZMjsPp4/Screen-Shot-2021-08-13-at-11-13-52.png "Article")
+![User Management](https://i.ibb.co/4snjNzq/Screen-Shot-2021-08-13-at-11-13-38.png "User Management")
+![Role and permission management](https://i.ibb.co/gd6kNdX/Screen-Shot-2021-08-13-at-11-13-45.png "Role and permission management")
+
+
+### Available feature
+1.  Article management
+2. Article category
+3. Announcement management
+4. Announcement category
+5. Gallery
+6. User management
+7. Role and permission management
+
 ## Installation
 1. `composer install`
 2. `npm install`
